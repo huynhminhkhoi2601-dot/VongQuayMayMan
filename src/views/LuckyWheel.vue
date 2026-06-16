@@ -41,17 +41,20 @@
 <script setup>
 import { ref, computed } from 'vue';
 
-const gifts = ref([
-  { name: 'Ưu đãi học phí 50%', image: 'src/assets/images/50.png' }, 
-  { name: 'Gấu bông', image: 'src/assets/images/gaubong.png' },          
-  { name: 'Nón bảo hiểm', image: 'src/assets/images/nonbaohiem.png' },
-  { name: 'Bút bi SGT', image: 'src/assets/images/butbi.png' },
-  { name: 'Card ĐT 20k', image: 'src/assets/images/thecao20k.png' },
-  { name: 'Card ĐT 50k', image: 'src/assets/images/thecao50k.png' },
-  { name: 'Balo SGT', image: 'src/assets/images/balo.png' },
-  { name: 'Chúc bạn may mắn lần sau', image: 'src/assets/images/goodluck.png' }
-]);
+const getImageUrl = (name) => {
+  return new URL(`../assets/images/${name}`, import.meta.url).href;
+};
 
+const gifts = ref([
+  { name: 'Ưu đãi học phí 50%', image: getImageUrl('50.png') }, 
+  { name: 'Gấu bông', image: getImageUrl('gaubong.png') },          
+  { name: 'Nón bảo hiểm', image: getImageUrl('nonbaohiem.png') },
+  { name: 'Bút bi SGT', image: getImageUrl('butbi.png') },
+  { name: 'Card ĐT 20k', image: getImageUrl('thecao20k.png') },
+  { name: 'Card ĐT 50k', image: getImageUrl('thecao50k.png') },
+  { name: 'Balo SGT', image: getImageUrl('balo.png') },
+  { name: 'Chúc bạn may mắn lần sau', image: getImageUrl('goodluck.png') }
+]);
 const isSpinning = ref(false);
 const rotation = ref(0); 
 const winningIndex = ref(0);
