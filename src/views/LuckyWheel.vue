@@ -60,6 +60,8 @@ const rotation = ref(0);
 const winningIndex = ref(0);
 const showPopup = ref(false);
 
+const winningGift = computed(() => gifts.value[winningIndex.value]);
+
 const totalSegments = gifts.value.length;
 const degreesPerSegment = 360 / totalSegments;
 
@@ -99,12 +101,11 @@ const spinWheel = () => {
 
 const handleConfirmPrize = () => {
   showPopup.value = false;
-  alert(`Hệ thống ghi nhận phần quà: ${gifts.value[winningIndex.value].name}. Chuyển đến form điền thông tin.`);
+  alert(`Hệ thống ghi nhận phần quà: ${winningGift.value.name}. Chuyển đến form điền thông tin.`);
 };
 </script>
 
 <style scoped>
-/* FIX: Chuyển sang position: fixed để ép phần nền tràn hết 100% màn hình, đè qua lỗi CSS của bộ template gốc */
 .lucky-wheel-container {
   position: fixed;
   top: 0;
