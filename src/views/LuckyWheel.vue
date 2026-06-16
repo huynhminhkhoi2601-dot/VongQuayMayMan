@@ -309,14 +309,14 @@ const handleConfirmPrize = () => {
   }
   
   .gift-name {
-    font-size: 13px;
+    font-size: 12px;
     margin-bottom: 4px;
     max-width: 75px;
   }
 
   .gift-icon {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
   }
 
   .spin-button {
