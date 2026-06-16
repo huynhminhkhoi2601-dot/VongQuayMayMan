@@ -193,10 +193,14 @@ const handleConfirmPrize = () => {
   font-size: 15px;
   font-weight: bold;
   line-height: 1.3;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   text-transform: uppercase;
   word-wrap: break-word; 
-  max-width: 110px;
+  max-width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gift-icon {
@@ -305,13 +309,14 @@ const handleConfirmPrize = () => {
 @media (max-width: 600px) {
   .gift-content {
     top: 14px;
-    width: 80px;
+    width: 90px;
   }
   
-  .gift-name {
+ .gift-name {
     font-size: 12px;
     margin-bottom: 4px;
     max-width: 80px;
+    height: 32px;
   }
 
   .gift-icon {
