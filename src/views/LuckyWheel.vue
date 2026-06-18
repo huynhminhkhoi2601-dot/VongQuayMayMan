@@ -46,15 +46,16 @@ const getImageUrl = (name) => {
 };
 
 const gifts = ref([
-  { name: 'Ưu đãi học phí 50%', image: getImageUrl('50.png') }, 
-  { name: 'Gấu bông', image: getImageUrl('gaubong.png') },          
-  { name: 'Nón bảo hiểm', image: getImageUrl('nonbaohiem.png') },
-  { name: 'Bút bi SGT', image: getImageUrl('butbi.png') },
-  { name: 'Card ĐT 20k', image: getImageUrl('thecao20k.png') },
-  { name: 'Card ĐT 50k', image: getImageUrl('thecao50k.png') },
-  { name: 'Balo SGT', image: getImageUrl('balo.png') },
-  { name: 'Chúc bạn may mắn lần sau', image: getImageUrl('goodluck.png') }
+  { name: 'Sữa rửa mặt', image: getImageUrl('sua_rua_mat.png'), weight: 35 }, 
+  { name: 'Gấu bông', image: getImageUrl('gaubong.png'), weight: 0 },          
+  { name: 'Nón bảo hiểm', image: getImageUrl('nonbaohiem.png'), weight: 0 },
+  { name: 'Bút bi SGT', image: getImageUrl('butbi.png'), weight: 0 },
+  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet.png'), weight: 35 },
+  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet.png'), weight: 30 },
+  { name: 'Balo SGT', image: getImageUrl('balo.png'), weight: 0 },
+  { name: 'Chúc bạn may mắn lần sau', image: getImageUrl('goodluck.png'), weight: 0 }
 ]);
+
 const isSpinning = ref(false);
 const rotation = ref(0); 
 const winningIndex = ref(0);
@@ -84,10 +85,24 @@ const spinWheel = () => {
   isSpinning.value = true;
   showPopup.value = false;
 
-  const randomIndex = Math.floor(Math.random() * totalSegments);
-  winningIndex.value = randomIndex;
+  const totalWeight = gifts.value.reduce((sum, gift) => sum + gift.weight, 0);
+  
 
-  const targetRotation = 360 - (randomIndex * degreesPerSegment);
+  let randomValue = Math.random() * totalWeight;
+  let selectedIndex = 0;
+
+
+  for (let i = 0; i < gifts.value.length; i++) {
+    randomValue -= gifts.value[i].weight;
+    if (randomValue <= 0) {
+      selectedIndex = i;
+      break;
+    }
+  }
+
+  winningIndex.value = selectedIndex;
+
+  const targetRotation = 360 - (selectedIndex * degreesPerSegment);
   const currentMod = rotation.value % 360;
   const spins = 1800;
   
