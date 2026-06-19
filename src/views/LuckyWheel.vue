@@ -124,17 +124,21 @@ const handleConfirmPrize = () => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #f0f6fc 0%, #d9e8fa 50%, #f0f6fc 100%); 
   padding: 20px;
   overflow: hidden;
   z-index: 9999;
+
+  background-image: url('../assets/images/anh-nen-vong-quay.png'); /* Giữ nguyên tên file của bạn */
+  background-size: 100% 100%; /* Ép ảnh vừa khít toàn bộ khung hình, không bị phóng to xén viền */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .wheel-wrapper {
@@ -146,6 +150,8 @@ const handleConfirmPrize = () => {
   border: 12px solid #002266; 
   border-radius: 50%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  margin-top: 100px;
 }
 
 .wheel-pointer {
@@ -351,6 +357,9 @@ const handleConfirmPrize = () => {
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-top: 25px solid #dd2c00;
+  }
+  .wheel-wrapper {
+    margin-top: 80px;
   }
 }
 </style>
