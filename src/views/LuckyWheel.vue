@@ -136,8 +136,8 @@ const handleConfirmPrize = () => {
   z-index: 9999;
 
   background-image: url('../assets/images/anh-nen-vong-quay.png'); /* Giữ nguyên tên file của bạn */
-  background-size: 100% 100%; /* Ép ảnh vừa khít toàn bộ khung hình, không bị phóng to xén viền */
-  background-position: center;
+  background-size: cover; /* Giữ nguyên tỷ lệ ảnh, phóng to để lấp đầy khoảng trống */
+  background-position: top center;
   background-repeat: no-repeat;
 }
 
@@ -151,7 +151,7 @@ const handleConfirmPrize = () => {
   border-radius: 50%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .wheel-pointer {
