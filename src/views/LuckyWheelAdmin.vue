@@ -46,14 +46,14 @@ const getImageUrl = (name) => {
 };
 
 const gifts = ref([
-  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_1.png'), weight: 20 }, 
+  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_1.png'), weight: 30 }, 
   { name: 'Gấu bông', image: getImageUrl('gaubong.png'), weight: 0 },          
   { name: 'Nón bảo hiểm', image: getImageUrl('nonbaohiem.png'), weight: 0 },
-  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_2.png'), weight: 20 },
-  { name: 'Bút bi SGT', image: getImageUrl('butbi.png'), weight: 0 },
-  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_3.png'), weight: 30 },
+  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_2.png'), weight: 35 },
+  { name: 'Móc khóa SGT', image: getImageUrl('moc-khoa-sgt.png'), weight: 0 },
+  { name: 'Gel tẩy tế bào chết', image: getImageUrl('tay_te_bao_chet_3.png'), weight: 35 },
   { name: 'Balo SGT', image: getImageUrl('balo.png'), weight: 0 },
-  { name: 'Chúc bạn may mắn lần sau', image: getImageUrl('goodluck.png'), weight: 30 }
+  { name: 'Chúc bạn may mắn lần sau', image: getImageUrl('goodluck.png'), weight: 0 }
 ]);
 
 const isSpinning = ref(false);
@@ -150,9 +150,12 @@ const handleConfirmPrize = () => {
   border: 12px solid #002266; 
   border-radius: 50%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
+  background-color: #002266;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
   margin-top: 120px;
 }
+
 
 .wheel-pointer {
   position: absolute;
@@ -174,6 +177,7 @@ const handleConfirmPrize = () => {
   border-radius: 50%;
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
   background: conic-gradient(
     from -22.5deg,
     #003399 0deg 45deg,
@@ -328,6 +332,10 @@ const handleConfirmPrize = () => {
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 600px) {
+  .lucky-wheel-container {
+    background-image: url('../assets/images/vongquaydienthoai.png');
+  }
+
   .gift-content {
     top: 14px;
     width: 90px;
@@ -359,7 +367,7 @@ const handleConfirmPrize = () => {
     border-top: 25px solid #dd2c00;
   }
   .wheel-wrapper {
-    margin-top: 80px;
+    margin-top: -40px;
   }
 }
 </style>

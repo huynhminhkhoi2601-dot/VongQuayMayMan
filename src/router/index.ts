@@ -14,7 +14,7 @@ const router = createRouter({
       component: LuckyWheel, // Gắn giao diện thí sinh vào link gốc
     },
     {
-      path: '/admin-quay-tai-cho', // TẠO ĐƯỜNG LINK BÍ MẬT Ở ĐÂY
+      path: '/quay-tai-cho', // TẠO ĐƯỜNG LINK BÍ MẬT Ở ĐÂY
       name: 'admin',
       component: LuckyWheelAdmin, // Gắn giao diện vô hạn vào link bí mật
     },
